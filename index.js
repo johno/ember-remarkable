@@ -12,5 +12,9 @@ module.exports = {
   included: function(app) {
     this._super.included(app);
     this.app.import(app.bowerDirectory + '/remarkable/dist/remarkable.js');
+    this.app.import('vendor/ember-remarkable/shim.js', {
+      type: 'vendor',
+      exports: { 'remarkable': ['default'] }
+    });
   }
 };
