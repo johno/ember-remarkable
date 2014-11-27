@@ -11,6 +11,6 @@ module.exports = {
 
   included: function(app) {
     this._super.included(app);
-    this.app.import(app.bowerDirectory + 'remarkable/remarkable.js');
+    this.app.import(app.bowerDirectory + '/remarkable/dist/remarkable.js');
   }
 };

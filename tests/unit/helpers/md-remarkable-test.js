@@ -4,8 +4,7 @@ import {
 
 module('MdRemarkableHelper');
 
-// Replace this with your real tests.
-test('it works', function() {
-  var result = mdRemarkable(42);
-  ok(result);
+test('it correctly converts markdown to html', function() {
+  var result = mdRemarkable('# This should be a h1');
+  equal(result, '<h1>This should be a h1</h1>');
 });
