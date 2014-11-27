@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/johnotander/ember-remarkable.svg?branch=master)](https://travis-ci.org/johnotander/ember-remarkable)
 
-Add [Remarkable]() parsing helpers and components to your Ember app.
+Add [Remarkable](https://github.com/jonschlinkert/remarkable) parsing helpers and components to your Ember app.
 
 Integrates with [ember-cli](http://ember-cli.com).
 

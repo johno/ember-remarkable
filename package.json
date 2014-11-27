@@ -33,7 +33,10 @@
     "glob": "^4.0.5"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "remarkable",
+    "markdown",
+    "md"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
