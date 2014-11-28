@@ -16,7 +16,6 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
   "license": "MIT",
   "devDependencies": {
     "body-parser": "^1.2.0",
