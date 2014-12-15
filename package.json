@@ -2,7 +2,7 @@
   "name": "ember-remarkable",
   "description": "Remarkable markdown parsing helpers and components for Ember CLI apps.",
   "author": "John Otander",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "directories": {
     "doc": "doc",
     "test": "tests"
