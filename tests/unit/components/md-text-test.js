@@ -53,3 +53,11 @@ test('it correctly identifies the syntax highlighting', function() {
   var $component = this.append();
   equal($component.find('.language-js').length, 1);
 });
+
+test('it does not highligh when set to false', function() {
+  var component = this.subject();
+  component.set('text', '# Markdown is fun\n ```var awesome = require("awesome");```');
+
+  var $component = this.append();
+  equal($component.find('.language-js').length, 0);
+});

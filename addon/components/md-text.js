@@ -6,7 +6,6 @@ export default Ember.Component.extend({
   text: '',
   typographer: false,
   linkify: false,
-  highlight: false,
 
   parsedMarkdown: function() {
     var md = new Remarkable({
