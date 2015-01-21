@@ -48,7 +48,7 @@ test('it correctly creates a link from a url', function() {
 test('it correctly identifies the syntax highlighting', function() {
   var component = this.subject();
   component.set('highlight', true);
-  component.set('text', '# Markdown is fun\n ```var awesome = require("awesome");```');
+  component.set('text', '# Markdown is fun\n ```js\nvar awesome = require("awesome");```');
 
   var $component = this.append();
   equal($component.find('.language-js').length, 1);
