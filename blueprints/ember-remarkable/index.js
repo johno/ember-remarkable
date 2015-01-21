@@ -8,7 +8,6 @@ module.exports = {
   },
 
   afterInstall: function() {
-    return this.addBowerPackageToProject('remarkable ');
-    return this.addBowerPackageToProject('highlightjs');
+    return this.addBowerPackagesToProject([{ name: 'remarkable' }, { name: 'highlightjs' }]);
   }
 }
