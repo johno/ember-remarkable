@@ -35,3 +35,21 @@ test('it properly parses the markdown', function() {
   var $component = this.append();
   equal($component.find('h1').length, 1);
 });
+
+test('it correctly creates a link from a url', function() {
+  var component = this.subject();
+  component.set('linkify', true);
+  component.set('text', '# Markdown is fun www.google.com');
+
+  var $component = this.append();
+  equal($component.find('a').length, 1);
+});
+
+test('it correctly identifies the syntax highlighting', function() {
+  var component = this.subject();
+  component.set('highlight', true);
+  component.set('text', '# Markdown is fun\n ```var awesome = require("awesome");```');
+
+  var $component = this.append();
+  equal($component.find('.language-js').length, 1);
+});
