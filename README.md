@@ -63,6 +63,11 @@ Currently, only the component supports syntax highlighting.
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
 
+## Thanks to the following
+
+* <https://github.com/jonschlinkert/remarkable>
+* <http://highlightjs.org>
+
 ## License
 
 MIT
