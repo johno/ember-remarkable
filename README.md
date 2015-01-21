@@ -33,10 +33,11 @@ Options:
 * [Typographer](https://github.com/jonschlinkert/remarkable#constructor)
 * [Linkify](https://github.com/jonschlinkert/remarkable#constructor)
 
-## Syntax Highlighting
+#### Syntax Highlighting
 
 This addon uses [highlight.js](http://highlightjs.org) for syntax highlighting, in order to include it
 you just need to use Github style [code-fencing](https://help.github.com/articles/github-flavored-markdown/).
+Currently, only the component supports syntax highlighting.
 
 ## Development
 
