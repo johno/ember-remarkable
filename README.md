@@ -34,6 +34,8 @@ Options:
 * [linkify](https://github.com/jonschlinkert/remarkable#constructor)
 * [html](https://github.com/jonschlinkert/remarkable#constructor)
 
+_Note:_ `html=true` should not be specified for user input.
+
 #### Syntax Highlighting
 
 This addon uses [highlight.js](http://highlightjs.org) for syntax highlighting, in order to include it
