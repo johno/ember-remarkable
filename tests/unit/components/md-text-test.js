@@ -60,3 +60,20 @@ test('it does not highlight when there is no language specified', function() {
   var $component = this.append();
   equal($component.find('.language-js').length, 0);
 });
+
+test('it does not render html when the html option is set to false', function() {
+  var component = this.subject();
+  component.set('text', '<h1>Markdown is fun</h1>');
+
+  var $component = this.append();
+  equal($component.find('h1').length, 0);
+});
+
+test('it renders html when the html option is set to true', function() {
+  var component = this.subject();
+  component.set('html', true);
+  component.set('text', '<h1>Markdown is fun</h1>');
+
+  var $component = this.append();
+  equal($component.find('h1').length, 1);
+});

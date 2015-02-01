@@ -1,8 +1,8 @@
 {
   "name": "ember-remarkable",
-  "description": "Remarkable markdown parsing helpers and components for Ember CLI apps.",
+  "description": "Remarkable sarkdown parsing component with highlight.js.",
   "author": "John Otander",
-  "version": "1.0.1",
+  "version": "1.3.0",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -38,6 +38,7 @@
     "md"
   ],
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "defaultBlueprint": "ember-remarkable"
   }
 }
