@@ -10,8 +10,7 @@ Integrates with [ember-cli](http://ember-cli.com).
 ## Installation
 
 ```
-npm i --save-dev ember-remarkable
-ember g ember-remarkable
+ember install:addon ember-remarkable
 ```
 
 ## Usage
