@@ -6,11 +6,14 @@ export default Ember.Component.extend({
   text: '',
   typographer: false,
   linkify: false,
+  html: false,
 
   parsedMarkdown: function() {
     var md = new Remarkable({
       typographer: this.get('typographer'),
       linkify: this.get('linkify'),
+      html: this.get('html'),
+
       highlight: function(str, lang) {
         if (lang && hljs.getLanguage(lang)) {
           try {

@@ -30,8 +30,9 @@ ember g ember-remarkable
 
 Options:
 
-* [Typographer](https://github.com/jonschlinkert/remarkable#constructor)
-* [Linkify](https://github.com/jonschlinkert/remarkable#constructor)
+* [typographer](https://github.com/jonschlinkert/remarkable#constructor)
+* [linkify](https://github.com/jonschlinkert/remarkable#constructor)
+* [html](https://github.com/jonschlinkert/remarkable#constructor)
 
 #### Syntax Highlighting
 
