@@ -1,6 +1,6 @@
 {
   "name": "ember-remarkable",
-  "description": "Remarkable markdown parsing helpers and components for Ember CLI apps.",
+  "description": "Remarkable sarkdown parsing component with highlight.js.",
   "author": "John Otander",
   "version": "1.2.0",
   "directories": {
