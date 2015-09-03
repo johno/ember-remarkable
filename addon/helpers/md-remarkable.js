@@ -6,4 +6,4 @@ export function mdRemarkable(markdownInput) {
   return new Ember.Handlebars.SafeString(md.render(markdownInput));
 }
 
-export default Ember.Handlebars.makeBoundHelper(mdRemarkable);
+export default Ember.Helper.helper(mdRemarkable);
