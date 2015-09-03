@@ -1,16 +1,12 @@
-# Ember Remarkable
-
-[![Build Status](https://travis-ci.org/johnotander/ember-remarkable.svg?branch=master)](https://travis-ci.org/johnotander/ember-remarkable)
+# ember-remarkable [![Build Status](https://travis-ci.org/johnotander/ember-remarkable.svg?branch=master)](https://travis-ci.org/johnotander/ember-remarkable) [![Ember Observer Score](http://emberobserver.com/badges/ember-remarkable.svg)](http://emberobserver.com/addons/ember-remarkable)
 
 Add [Remarkable](https://github.com/jonschlinkert/remarkable) markdown parsing helpers and
 components to your Ember app.
 
-Integrates with [ember-cli](http://ember-cli.com).
-
 ## Installation
 
 ```
-ember install:addon ember-remarkable
+ember install ember-remarkable
 ```
 
 ## Usage
