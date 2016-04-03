@@ -5,6 +5,8 @@ import hljs from 'hljs';
 const { computed } = Ember;
 
 export default Ember.Component.extend({
+  tagName: '',
+
   text: '',
   typographer: false,
   linkify: false,
@@ -30,6 +32,23 @@ export default Ember.Component.extend({
         return '';
       }
     });
+
+    if (this.get('html')) {
+      md.core.ruler.enable([
+        'abbr'
+      ]);
+      md.block.ruler.enable([
+        'footnote',
+        'deflist'
+      ]);
+      md.inline.ruler.enable([
+        'footnote_inline',
+        'ins',
+        'mark',
+        'sub',
+        'sup'
+      ]);
+    }
 
     var html = md.render(this.get('text'));
     return new Ember.Handlebars.SafeString(html);
