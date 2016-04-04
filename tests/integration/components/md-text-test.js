@@ -29,3 +29,9 @@ test('it renders html when the html option is set to true', function(assert) {
   this.render(hbs`{{md-text text="<abbr>Cool</abbr>" html=true}}`);
   assert.equal(this.$().find('abbr').length, 1);
 });
+
+
+test('it renders with syntax highlighting when a language is specified', function(assert) {
+  this.render(hbs`{{md-text text='# Markdown is fun\n \`\`\`js\nvar awesome = require("awesome");\`\`\`'}}`);
+  assert.ok(this.$().find('.language-js').length);
+});
