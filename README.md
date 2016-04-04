@@ -25,9 +25,10 @@ ember install ember-remarkable
 
 Options:
 
-* [typographer](https://github.com/jonschlinkert/remarkable#constructor)
-* [linkify](https://github.com/jonschlinkert/remarkable#constructor)
-* [html](https://github.com/jonschlinkert/remarkable#constructor)
+* [typographer](https://github.com/jonschlinkert/remarkable#constructor) - default: false
+* [linkify](https://github.com/jonschlinkert/remarkable#constructor) - default: false
+* [html](https://github.com/jonschlinkert/remarkable#constructor) - default: false
+* [extensions](https://github.com/jonschlinkert/remarkable#syntax-extensions) - default: true
 
 _Note:_ `html=true` should not be specified for user input.
 

@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   typographer: false,
   linkify: false,
   html: false,
+  extensions: true,
 
   parsedMarkdown: computed('text', 'html', 'typographer', 'linkify', function() {
     var md = new Remarkable({
@@ -33,7 +34,7 @@ export default Ember.Component.extend({
       }
     });
 
-    if (this.get('html')) {
+    if (this.get('extensions')) {
       md.core.ruler.enable([
         'abbr'
       ]);
