@@ -1,3 +1,1 @@
-import mdText from 'ember-remarkable/components/md-text';
-
-export default mdText;
+export { default } from 'ember-remarkable/components/md-text';
