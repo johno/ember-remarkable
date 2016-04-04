@@ -11,14 +11,6 @@ ember install ember-remarkable
 
 ## Usage
 
-### The helper
-
-```hbs
-{{md '# Markdown text!'}}
-```
-
-### The component
-
 ```hbs
 {{md-text text="# Markdown text!" typographer=true linkify=false}}
 ```
@@ -79,4 +71,6 @@ MIT
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-Crafted with <3 by [John Otander](http://johnotander.com)([@4lpine](https://twitter.com/4lpine)).
+***
+
+> Crafted with <3 by [John Otander](http://johnotander.com)([@4lpine](https://twitter.com/4lpine)).

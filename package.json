@@ -1,7 +1,7 @@
 {
   "name": "ember-remarkable",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "3.0.0",
+  "description": "Remarkable markdown parser with highlight.js support",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,11 +11,11 @@
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": "johnotander/ember-remarkable",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "John Otander",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
@@ -39,7 +39,12 @@
     "loader.js": "^4.0.1"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "markdown",
+    "md",
+    "remarkable",
+    "highlight",
+    "hljs"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6"
