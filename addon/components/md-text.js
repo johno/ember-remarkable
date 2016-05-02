@@ -2,7 +2,7 @@ import Ember from 'ember';
 import Remarkable from 'remarkable';
 import hljs from 'hljs';
 
-const { computed } = Ember;
+const {computed, HTMLBars} = Ember;
 
 export default Ember.Component.extend({
   tagName: '',
@@ -12,23 +12,26 @@ export default Ember.Component.extend({
   linkify: false,
   html: false,
   extensions: true,
+  dynamic: false,
 
-  parsedMarkdown: computed('text', 'html', 'typographer', 'linkify', function() {
+  parsedMarkdownUnsafe: computed('text', 'html', 'typographer', 'linkify', function() {
     var md = new Remarkable({
       typographer: this.get('typographer'),
-      linkify: this.get('linkify'),
-      html: this.get('html'),
+      linkify:     this.get('linkify'),
+      html:        this.get('html'),
 
-      highlight: function(str, lang) {
+      highlight: function (str, lang) {
         if (lang && hljs.getLanguage(lang)) {
           try {
             return hljs.highlight(lang, str).value;
-          } catch (err) {}
+          } catch (err) {
+          }
         }
 
         try {
           return hljs.highlightAuto(str).value;
-        } catch (err) {}
+        } catch (err) {
+        }
 
         return '';
       }
@@ -51,7 +54,16 @@ export default Ember.Component.extend({
       ]);
     }
 
-    var html = md.render(this.get('text'));
-    return new Ember.Handlebars.SafeString(html);
-  })
+    return md.render(this.get('text'));
+  }),
+
+  parsedMarkdown: computed('parsedMarkdownUnsafe', function () {
+    const parsedMarkdownUnsafe = this.get('parsedMarkdownUnsafe');
+    return new Ember.Handlebars.SafeString(parsedMarkdownUnsafe);
+  }),
+
+  precompiledTemplate: computed('parsedMarkdownUnsafe', function () {
+    const parsedMarkdownUnsafe = this.get('parsedMarkdownUnsafe');
+    return HTMLBars.compile(parsedMarkdownUnsafe, false);
+  }),
 });

@@ -35,3 +35,10 @@ test('it renders with syntax highlighting when a language is specified', functio
   this.render(hbs`{{md-text text='# Markdown is fun\n \`\`\`js\nvar awesome = require("awesome");\`\`\`'}}`);
   assert.ok(this.$().find('.language-js').length);
 });
+
+
+test('it renders a dynamic template', function(assert) {
+  this.tpl = "{{link-to 'Foo'}} <a href>Bar</a>";
+  this.render(hbs`{{md-text text=tpl html=true dynamic=true}}`);
+  assert.equal(this.$().find('a').length, 2); // should have both dynamic and static link
+});
