@@ -38,7 +38,7 @@ test('it renders with syntax highlighting when a language is specified', functio
 
 
 test('it renders a dynamic template', function(assert) {
-  this.tpl = "{{link-to 'Foo'}} <a href>Bar</a>";
+  this.tpl = "{{link-to 'root' 'Foo'}} <a href>Bar</a>";
   this.render(hbs`{{md-text text=tpl html=true dynamic=true}}`);
   assert.equal(this.$().find('a').length, 2); // should have both dynamic and static link
 });
