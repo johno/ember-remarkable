@@ -12,17 +12,65 @@ ember install ember-remarkable
 ## Usage
 
 ```hbs
-{{md-text text="# Markdown text!" typographer=true linkify=false}}
+{{md-text
+  text        = "# Markdown text!"
+  typographer = true
+  linkify     = false
+}}
 ```
 
-Options:
+#### Options
 
-* [typographer](https://github.com/jonschlinkert/remarkable#constructor) - default: false
-* [linkify](https://github.com/jonschlinkert/remarkable#constructor) - default: false
-* [html](https://github.com/jonschlinkert/remarkable#constructor) - default: false
-* [extensions](https://github.com/jonschlinkert/remarkable#syntax-extensions) - default: true
+option        | type    | default | security                                             | description
+------------- | ------- | ------- | ---------------------------------------------------- | -----------
+`text`        | string  |         |                                                      | Markdown content to render
+`typographer` | boolean | `false` |                                                      | Whether to enable Remarkable's [typographer](https://github.com/jonschlinkert/remarkable#constructor) option
+`linkify`     | boolean | `false` |                                                      | Whether to enable Remarkable's [linkify](https://github.com/jonschlinkert/remarkable#constructor) option
+`html`        | boolean | `false` | :warning: [insecure](#warning-security-implications) | Whether to enable Remarkable's [html](https://github.com/jonschlinkert/remarkable#constructor) option
+`extensions`  | boolean | `true`  |                                                      | Whether to enable Remarkable's [syntax extensions](https://github.com/jonschlinkert/remarkable#constructor)
+`dynamic`     | boolean | `false` | :warning: [insecure](#warning-security-implications) | Whether to enable dynamic template rendering ([see below](#dynamic-template-rendering))
 
-_Note:_ `html=true` should not be specified for user input.
+
+#### Inline multi-line input
+
+When you provide the `text` inline, you can split it into multiple lines like this:
+
+```hbs
+<div>
+  {{md-text
+    text = "
+# Hello world
+
+Note that you have to unindent
+the multiline `text` content.
+    "
+  }}
+</div>
+```
+
+#### Dynamic Template Rendering
+
+By enabling the `dynamic` option you can embed Ember components into your markdown:
+
+```hbs
+{{md-text
+  text = "{{link-to 'Foo' 'foo'}}"
+}}
+```
+
+This feature is useful for implementing CMS-like funcitonality with Ember: it lets your Markdown content to be dynamic and Ember-driven rather than just static HTML.
+
+But this approach is not encouraged by the Ember core team and might be deprecated in the future (though there are no plans to deprecate it as of May 2016).
+
+
+
+#### :warning: Security implications
+
+By using the `html` and `dynamic` template options you can make your app vulnerable to [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting).
+
+Use those options **only** if your Markdown content is provided by trusted team members and regular users have no way to update it.
+
+
 
 #### Syntax Highlighting
 
