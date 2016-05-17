@@ -21,6 +21,10 @@ export default Ember.Component.extend({
       html:        this.get('html'),
 
       highlight: function (str, lang) {
+        if (lang === 'text' || lang === 'no-highlight') {
+          return '';
+        }
+
         if (lang && hljs.getLanguage(lang)) {
           try {
             return hljs.highlight(lang, str).value;
