@@ -36,6 +36,11 @@ test('it renders with syntax highlighting when a language is specified', functio
   assert.ok(this.$().find('.language-js').length);
 });
 
+test('it renders text without highlights', function(assert) {
+  this.render(hbs`{{md-text text='\`\`\`text\nvar awesome = require("awesome");\`\`\`'}}`);
+  assert.equal(this.$().find('.hljs-keyword').length, 0);
+});
+
 
 test('it renders a dynamic template', function(assert) {
   this.tpl = "{{link-to 'root' 'Foo'}} <a href>Bar</a>";
