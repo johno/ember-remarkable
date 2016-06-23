@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import Remarkable from 'remarkable';
 import hljs from 'hljs';
+import remarkableEmoji from 'npm:remarkable-emoji';
 
 const {computed, HTMLBars} = Ember;
 
@@ -61,11 +62,13 @@ export default Ember.Component.extend({
     let config = Ember.getOwner(this).resolveRegistration('config:environment');
     console.log(config);
 
-    if (config.emberRemarkable.plugins != false) {
-      config.emberRemarkable.plugins.forEach(function(plugin) {
-        md.use(plugin.plugin);
-      });
-    }
+    // if (config.emberRemarkable.plugins != false) {
+    //   config.emberRemarkable.plugins.forEach(function(plugin) {
+    //     md.use(plugin.plugin);
+    //   });
+    // }
+
+    md.use(remarkableEmoji);
 
     return md.render(this.get('text'));
   }),
