@@ -15,8 +15,6 @@ export default Ember.Component.extend({
   dynamic: false,
 
   parsedMarkdownUnsafe: computed('text', 'html', 'typographer', 'linkify', function() {
-    let config = Ember.getOwner(this).resolveRegistration('config:environment');
-    console.log(config);
     var md = new Remarkable({
       typographer: this.get('typographer'),
       linkify:     this.get('linkify'),
@@ -59,6 +57,11 @@ export default Ember.Component.extend({
         'sup'
       ]);
     }
+
+    let config = Ember.getOwner(this).resolveRegistration('config:environment');
+    config.emberRemarkable.plugins.forEach(function(plugin) {
+      md.use(plugin.plugin);
+    });
 
     return md.render(this.get('text'));
   }),
