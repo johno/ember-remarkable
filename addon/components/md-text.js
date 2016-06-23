@@ -59,6 +59,8 @@ export default Ember.Component.extend({
     }
 
     let config = Ember.getOwner(this).resolveRegistration('config:environment');
+    console.log(config);
+
     if (config.emberRemarkable.plugins != false) {
       config.emberRemarkable.plugins.forEach(function(plugin) {
         md.use(plugin.plugin);
