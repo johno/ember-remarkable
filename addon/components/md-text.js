@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import Remarkable from 'remarkable';
 import hljs from 'hljs';
-import config from '../config/environment';
 
 const {computed, HTMLBars} = Ember;
 
@@ -16,6 +15,7 @@ export default Ember.Component.extend({
   dynamic: false,
 
   parsedMarkdownUnsafe: computed('text', 'html', 'typographer', 'linkify', function() {
+    let config = Ember.getOwner(this).resolveRegistration('config:environment');
     console.log(config);
     var md = new Remarkable({
       typographer: this.get('typographer'),
