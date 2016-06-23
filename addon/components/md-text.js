@@ -59,9 +59,11 @@ export default Ember.Component.extend({
     }
 
     let config = Ember.getOwner(this).resolveRegistration('config:environment');
-    config.emberRemarkable.plugins.forEach(function(plugin) {
-      md.use(plugin.plugin);
-    });
+    if (config.emberRemarkable.plugins != false) {
+      config.emberRemarkable.plugins.forEach(function(plugin) {
+        md.use(plugin.plugin);
+      });
+    }
 
     return md.render(this.get('text'));
   }),
