@@ -60,10 +60,10 @@ export default Ember.Component.extend({
     }
 
     let config = Ember.getOwner(this).resolveRegistration('config:environment');
-    if (config.emberRemarkable.plugins != false) {
+    if (config.emberRemarkable.plugins !== false) {
       let usePlugins = this.get('usePlugins');
       config.emberRemarkable.plugins.forEach(function(plugin) {
-        if (usePlugins == null || usePlugins.indexOf(plugin.name) != -1) {
+        if (usePlugins == null || usePlugins.indexOf(plugin.name) !== -1) {
           md.use(plugin.plugin);
         }
       });
