@@ -13,6 +13,7 @@ export default Ember.Component.extend({
   html: false,
   extensions: true,
   dynamic: false,
+  usePlugins: null,
 
   parsedMarkdownUnsafe: computed('text', 'html', 'typographer', 'linkify', function() {
     var md = new Remarkable({
@@ -60,8 +61,11 @@ export default Ember.Component.extend({
 
     let config = Ember.getOwner(this).resolveRegistration('config:environment');
     if (config.emberRemarkable.plugins != false) {
+      let usePlugins = this.get('usePlugins');
       config.emberRemarkable.plugins.forEach(function(plugin) {
-        md.use(plugin.plugin);
+        if (usePlugins == null || usePlugins.indexOf(plugin.name) != -1) {
+          md.use(plugin.plugin);
+        }
       });
     }
 
