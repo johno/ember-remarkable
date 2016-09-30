@@ -63,7 +63,7 @@ export default Ember.Component.extend({
 
   parsedMarkdown: computed('parsedMarkdownUnsafe', function () {
     const parsedMarkdownUnsafe = this.get('parsedMarkdownUnsafe');
-    return new Ember.Handlebars.SafeString(parsedMarkdownUnsafe);
+    return new Ember.String.htmlSafe(parsedMarkdownUnsafe);
   }),
 
   precompiledTemplate: computed('parsedMarkdownUnsafe', function () {
