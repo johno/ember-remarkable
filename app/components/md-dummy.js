@@ -1,5 +1,1 @@
-import Ember from 'ember';
-
-const {Component} = Ember;
-
-export default Component;
+export { default } from 'ember-remarkable/components/md-dummy';

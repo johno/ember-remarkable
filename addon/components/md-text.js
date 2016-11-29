@@ -1,10 +1,13 @@
 import Ember from 'ember';
 import Remarkable from 'remarkable';
 import hljs from 'hljs';
+import layout from '../templates/components/md-text';
 
 const {computed, HTMLBars} = Ember;
 
 export default Ember.Component.extend({
+  layout,
+
   tagName: '',
 
   text: '',
