@@ -58,7 +58,7 @@ By enabling the `dynamic` option you can embed Ember components into your markdo
 }}
 ```
 
-This feature is useful for implementing CMS-like funcitonality with Ember: it lets your Markdown content to be dynamic and Ember-driven rather than just static HTML.
+This feature is useful for implementing CMS-like functionality with Ember: it lets your Markdown content to be dynamic and Ember-driven rather than just static HTML.
 
 But this approach is not encouraged by the Ember core team and might be deprecated in the future (though there are no plans to deprecate it as of May 2016).
 
