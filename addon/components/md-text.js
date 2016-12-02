@@ -69,7 +69,7 @@ export default Ember.Component.extend({
           md[plugin.type].ruler.push(plugin.name, plugin.parse, opts);
         }
         if (typeof plugin.render === 'function') {
-          md[plugin.type].renderer.rules.push(plugin.name, plugin.render, opts);
+          md.renderer.rules[plugin.name] = plugin.render;
         }
       });
     }
