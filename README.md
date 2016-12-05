@@ -82,7 +82,7 @@ Currently, only the component supports syntax highlighting.
 
 #### Plugins
 
-You can pass plugins to each component instance by providing an array of ![plugin functions](https://github.com/jonschlinkert/remarkable/blob/master/docs/plugins.md) in a `plugin` option. 
+You can pass plugins to each component instance by providing an array of [plugin functions](https://github.com/jonschlinkert/remarkable/blob/master/docs/plugins.md) in a `plugin` option. 
 
 ## Development
 
