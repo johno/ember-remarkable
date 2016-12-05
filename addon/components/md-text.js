@@ -63,15 +63,7 @@ export default Ember.Component.extend({
 
     let plugins = this.get('plugins');
     if (plugins) {
-      plugins.forEach((plugin) => {
-        let opts = plugin.options || {};
-        if (typeof plugin.parse === 'function') {
-          md[plugin.type].ruler.push(plugin.name, plugin.parse, opts);
-        }
-        if (typeof plugin.render === 'function') {
-          md.renderer.rules[plugin.name] = plugin.render;
-        }
-      });
+      plugins.forEach((plugin) => md.use(plugin));
     }
 
     return md.render(this.get('text'));
