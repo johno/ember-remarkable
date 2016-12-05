@@ -78,6 +78,12 @@ This addon uses [highlight.js](http://highlightjs.org) for syntax highlighting, 
 you just need to use Github style [code-fencing](https://help.github.com/articles/github-flavored-markdown/).
 Currently, only the component supports syntax highlighting.
 
+
+
+#### Plugins
+
+You can pass plugins to each component instance by providing an array of ![plugin functions](https://github.com/jonschlinkert/remarkable/blob/master/docs/plugins.md) in a `plugin` option. 
+
 ## Development
 
 ### Installation

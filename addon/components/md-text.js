@@ -61,6 +61,11 @@ export default Ember.Component.extend({
       ]);
     }
 
+    let plugins = this.get('plugins');
+    if (plugins) {
+      plugins.forEach((plugin) => md.use(plugin));
+    }
+
     return md.render(this.get('text'));
   }),
 
