@@ -41,7 +41,7 @@ export default Ember.Component.extend({
       }
 
       return '';
-    }
+    };
   }),
 
   parsedMarkdownUnsafe: computed('text', 'html', 'typographer', 'linkify', function () {

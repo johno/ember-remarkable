@@ -1,6 +1,7 @@
 {
   "predef": [
     "document",
+    "hljs",
     "window",
     "-Promise"
   ],
