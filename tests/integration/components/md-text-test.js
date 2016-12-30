@@ -48,6 +48,15 @@ test('it renders text without highlights', function(assert) {
   assert.equal(this.$().find('.hljs-keyword').length, 0);
 });
 
+test('it renders text with highlights when highlight.js is not excluded', function(assert) {
+  this.render(hbs`{{md-text text='\`\`\`js\nvar awesome = require("awesome");\`\`\`'}}`);
+  assert.ok(this.$().find('.hljs-keyword').length > 0);
+});
+
+test('it renders text without highlights when highlight.js is excluded', function(assert) {
+  this.render(hbs`{{md-text highlightJsExcluded=true text='\`\`\`js\nvar awesome = require("awesome");\`\`\`'}}`);
+  assert.equal(this.$().find('.hljs-keyword').length, 0);
+});
 
 test('it renders a dynamic template', function(assert) {
   this.tpl = "{{link-to 'root' 'Foo'}} <a href>Bar</a>";
