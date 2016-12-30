@@ -41,12 +41,6 @@ module.exports = {
       type: 'vendor',
       exports: { 'remarkable': ['default'] }
     });
-    if (!excludeHighlightJs) {
-      importContext.import('vendor/ember-remarkable/highlightjs-shim.js', {
-        type: 'vendor',
-        exports: { 'hljs': ['default'] }
-      });
-    }
   },
 
   // included from https://git.io/v6F7n
