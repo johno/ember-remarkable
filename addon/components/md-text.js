@@ -16,7 +16,13 @@ export default Ember.Component.extend({
   extensions: true,
   dynamic: false,
   highlightJsExcluded: Ember.computed(function () {
-    let config = Ember.getOwner(this).resolveRegistration('config:environment');
+    let config;
+    if (Ember.getOwner) {
+      config = Ember.getOwner(this).resolveRegistration('config:environment');
+    }else{
+      let registry = this.container.registry || this.container._registry;
+      config = registry.resolve('config:environment');
+    }
     return config.remarkable.excludeHighlightJs || false;
   }),
   highlight: Ember.computed('highlightJsExcluded', function() {
