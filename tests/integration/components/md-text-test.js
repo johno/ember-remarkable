@@ -36,7 +36,7 @@ test('it renders with syntax highlighting when a language is specified', functio
 });
 
 test('it allows to override the highlight function', function(assert) {
-  this.set('highlight', function(str){
+  this.set('highlight', function(str) {
     return `<h1>${str}</h1>`;
   });
   this.render(hbs`{{md-text highlight=highlight text='\`\`\`text\nCustom highlighting\n\`\`\`'}}`);

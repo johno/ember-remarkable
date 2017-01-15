@@ -19,7 +19,7 @@ export default Ember.Component.extend({
     let config;
     if (Ember.getOwner) {
       config = Ember.getOwner(this).resolveRegistration('config:environment');
-    }else{
+    } else {
       let registry = this.container.registry || this.container._registry;
       config = registry.resolve('config:environment');
     }

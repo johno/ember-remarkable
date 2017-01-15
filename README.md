@@ -82,15 +82,17 @@ Currently, only the component supports syntax highlighting.
 
 The use of highlight.js can be disabled by adding the following option to your `config/environment.js`:
 
-    remarkable: {
-       excludeHighlightJs: true
-    }
+```js
+remarkable: {
+  excludeHighlightJs: true
+}
+```
     
-Highlightjs will no longer be included in your build.
+Setting to `true` will ensure that highlight.js won't  be included in your build.
 
 ##### Custom Highlighting
 
-The highlight function, as used by remarkable, can easily be overriden. To do this, create your own `md-text` component:
+The highlight function, as used by remarkable, can be overriden. To do this, create your own `md-text` component:
 
 ```js
 import MDTextComponent from 'ember-remarkable/components/md-text';
