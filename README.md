@@ -78,7 +78,29 @@ This addon uses [highlight.js](http://highlightjs.org) for syntax highlighting, 
 you just need to use Github style [code-fencing](https://help.github.com/articles/github-flavored-markdown/).
 Currently, only the component supports syntax highlighting.
 
+##### Excluding Highlightjs
 
+The use of highlight.js can be disabled by adding the following option to your `config/environment.js`:
+
+    remarkable: {
+       excludeHighlightJs: true
+    }
+    
+Highlightjs will no longer be included in your build.
+
+##### Custom Highlighting
+
+The highlight function, as used by remarkable, can easily be overriden. To do this, create your own `md-text` component:
+
+```js
+import MDTextComponent from 'ember-remarkable/components/md-text';
+
+export default MDTextComponent.extend({ 
+  highlight: function(str, lang) {
+     return '';
+  }
+}); 
+```
 
 #### Plugins
 

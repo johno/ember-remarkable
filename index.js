@@ -9,6 +9,14 @@ module.exports = {
     return path.join(__dirname, 'blueprints');
   },
 
+  config: function(/*environment, appConfig*/) {
+    return {
+      remarkable: {
+        excludeHighlightJs: false
+      }
+    }
+  },
+
   included: function(app) {
     this._super.included.apply(this, arguments);
 
@@ -21,15 +29,17 @@ module.exports = {
       importContext = this._findHostForLegacyEmberCLI();
     }
 
+    var env = app.env;
+    var config = this.project.config(env || 'development');
+    var excludeHighlightJs = config.remarkable.excludeHighlightJs;
+
     importContext.import(bowerDirectory + '/remarkable/dist/remarkable.js');
-    importContext.import(bowerDirectory + '/highlightjs/highlight.pack.js');
+    if (!excludeHighlightJs) {
+      importContext.import(bowerDirectory + '/highlightjs/highlight.pack.js');
+    }
     importContext.import('vendor/ember-remarkable/shim.js', {
       type: 'vendor',
       exports: { 'remarkable': ['default'] }
-    });
-    importContext.import('vendor/ember-remarkable/highlightjs-shim.js', {
-      type: 'vendor',
-      exports: { 'hljs': ['default'] }
     });
   },
 

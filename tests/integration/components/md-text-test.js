@@ -30,10 +30,17 @@ test('it renders html when the html option is set to true', function(assert) {
   assert.equal(this.$().find('abbr').length, 1);
 });
 
-
 test('it renders with syntax highlighting when a language is specified', function(assert) {
   this.render(hbs`{{md-text text='# Markdown is fun\n \`\`\`js\nvar awesome = require("awesome");\`\`\`'}}`);
   assert.ok(this.$().find('.language-js').length);
+});
+
+test('it allows to override the highlight function', function(assert) {
+  this.set('highlight', function(str){
+    return `<h1>${str}</h1>`;
+  });
+  this.render(hbs`{{md-text highlight=highlight text='\`\`\`text\nCustom highlighting\n\`\`\`'}}`);
+  assert.ok(this.$().find('code').find('h1').length);
 });
 
 test('it renders text without highlights', function(assert) {
@@ -41,6 +48,15 @@ test('it renders text without highlights', function(assert) {
   assert.equal(this.$().find('.hljs-keyword').length, 0);
 });
 
+test('it renders text with highlights when highlight.js is not excluded', function(assert) {
+  this.render(hbs`{{md-text text='\`\`\`js\nvar awesome = require("awesome");\`\`\`'}}`);
+  assert.ok(this.$().find('.hljs-keyword').length > 0);
+});
+
+test('it renders text without highlights when highlight.js is excluded', function(assert) {
+  this.render(hbs`{{md-text highlightJsExcluded=true text='\`\`\`js\nvar awesome = require("awesome");\`\`\`'}}`);
+  assert.equal(this.$().find('.hljs-keyword').length, 0);
+});
 
 test('it renders a dynamic template', function(assert) {
   this.tpl = "{{link-to 'root' 'Foo'}} <a href>Bar</a>";
@@ -79,7 +95,7 @@ test('it renders a video with plugin', function(assert) {
 
         return true;
       }, options);
-      
+
       md.renderer.rules.video = function (tokens, idx/*, options, env*/) {
         return `<iframe width="560" height="315" src="${tokens[idx].src}" frameborder="0"></iframe>`;
       };
