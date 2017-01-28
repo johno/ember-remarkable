@@ -12,6 +12,7 @@ export default Ember.Component.extend({
   text: '',
   typographer: false,
   linkify: false,
+  linkTarget: '',
   html: false,
   extensions: true,
   dynamic: false,
@@ -50,10 +51,11 @@ export default Ember.Component.extend({
     };
   }),
 
-  parsedMarkdownUnsafe: computed('text', 'html', 'typographer', 'linkify', function () {
+  parsedMarkdownUnsafe: computed('text', 'html', 'typographer', 'linkify', 'linkTarget', function () {
     var md = new Remarkable({
       typographer: this.get('typographer'),
       linkify: this.get('linkify'),
+      linkTarget: this.get('linkTarget'),
       html: this.get('html'),
       highlight: this.get('highlight')
     });
