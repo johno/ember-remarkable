@@ -24,7 +24,8 @@ export default Ember.Component.extend({
       let registry = this.container.registry || this.container._registry;
       config = registry.resolve('config:environment');
     }
-    return config.remarkable.excludeHighlightJs || false;
+    let remarkableConfig = config.remarkable || {};
+    return remarkableConfig.excludeHighlightJs || false;
   }),
   highlight: Ember.computed('highlightJsExcluded', function() {
     let highlightJsExcluded = this.get('highlightJsExcluded');
