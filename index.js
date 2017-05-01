@@ -31,7 +31,8 @@ module.exports = {
 
     var env = app.env;
     var config = this.project.config(env || 'development');
-    var excludeHighlightJs = config.remarkable.excludeHighlightJs;
+    var remarkableConfig = config.remarkable || {}
+    var excludeHighlightJs = remarkableConfig.excludeHighlightJs;
 
     importContext.import(bowerDirectory + '/remarkable/dist/remarkable.js');
     if (!excludeHighlightJs) {
